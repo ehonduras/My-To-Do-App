@@ -18,18 +18,29 @@
 
             <div class="inputType">
                 <ul>
-                    <li>Task</li>
-                    <li>Event</li>
-                    <li>Meeting</li>
+                    <li id="task">Task</li>
+                    <li id="event">Event</li>
+                    <li id="meeting">Meeting</li>
                 </ul>
             </div>
         </div>
 
         <div class="listContainer">
-            <button>Add</button>
+            <button id="addButton">Add</button>
+            <button id="clearButton">Clear</button>
+
+            <div class="daily-note">
+                <table id="table">
+                    <tr>
+                        <td>Company</td>
+                        <td>Contact</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

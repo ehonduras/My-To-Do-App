@@ -24,6 +24,7 @@ body {
 
 .listContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -52,10 +53,14 @@ ul li:hover {
     background-color: rgba(0, 0, 0, 0.226);
 }
 
+li.checked {
+    background-color: rgb(50, 174, 231);
+}
+
 button {
     width: 80%;
     height: 30px;
-    margin: 30px;
+    margin: 10px 30px;
     background-color: rgb(50, 174, 231);
     border: none;
     border-radius: 10px;
@@ -64,4 +69,15 @@ button {
 
 button:hover {
     transform: scale(1.01);
+}
+
+.daily-note {
+    width: 50%;
+    margin-top: 50px;
+    border: 2px solid papayawhip;
+}
+
+table {
+    width: 100%;
+    text-align: center;
 }
