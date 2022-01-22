@@ -15,16 +15,42 @@ function inputTypeChecked(e) {
     }
     inputType = document.getElementById(e.target.id);
     inputType.classList.add('checked');
-    console.log(inputType);
+
 }
 
 function writeNote() {
-    tableEl.innerHTML += `
-    <tr>
-        <td>${textArea.value}</td>
-        <td>${inputType.id}</td>
-    </tr>    
-    `;
+    if (textArea.value) {
+        switch (inputType.id) {
+            case "task":
+                tableEl.innerHTML += `
+                <tr>
+                    <td>${textArea.value}</td>
+                    <td><i class="fa fa-circle">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                </tr>    
+                `;
+                break;
+            case "event":
+                tableEl.innerHTML += `
+                <tr>
+                    <td>${textArea.value}</td>
+                    <td><i class="fa fa-calendar-check">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                </tr>    
+                `;
+                break;
+            case "meeting":
+                tableEl.innerHTML += `
+                <tr>
+                    <td>${textArea.value}</td>
+                    <td><i class="fa fa-location-arrow">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                </tr>    
+                `;
+                break;
+            default:
+                break;
+        }
+    }
+
+    textArea.value = '';
 }
 
 function clearNote() {
