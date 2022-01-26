@@ -4,6 +4,7 @@ const eventEl = document.getElementById('event');
 const meetingEl = document.getElementById('meeting');
 const addButtonEl = document.getElementById('addButton');
 const clearButtonEl = document.getElementById('clearButton');
+const createNoteEl = document.getElementById('createNote');
 const dailyNote = document.getElementsByClassName('daily-note');
 const tableEl = document.getElementById('table');
 
@@ -57,8 +58,13 @@ function clearNote() {
     tableEl.innerHTML = '';
 }
 
+function createNote() {
+
+}
+
 taskEl.addEventListener('click', inputTypeChecked);
 eventEl.addEventListener('click', inputTypeChecked);
 meetingEl.addEventListener('click', inputTypeChecked);
 addButtonEl.addEventListener('click', writeNote);
 clearButtonEl.addEventListener('click', clearNote);
+createNoteEl.addEventListener('click', createNote)
