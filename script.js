@@ -5,10 +5,12 @@ const meetingEl = document.getElementById('meeting');
 const addButtonEl = document.getElementById('addButton');
 const clearButtonEl = document.getElementById('clearButton');
 const createNoteEl = document.getElementById('createNote');
-const dailyNote = document.getElementsByClassName('daily-note');
+const dailyNote = document.getElementById('daily-note');
 const tableEl = document.getElementById('table');
+const noteContainer = document.getElementById('note-container');
 
 let inputType;
+let createdNote;
 
 function inputTypeChecked(e) {
     if (inputType) {
@@ -23,27 +25,33 @@ function writeNote() {
     if (textArea.value) {
         switch (inputType.id) {
             case "task":
-                tableEl.innerHTML += `
-                <tr>
-                    <td>${textArea.value}</td>
-                    <td><i class="fa fa-circle">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
-                </tr>    
+                dailyNote.innerHTML += `
+                <table id="table">
+                    <tr>
+                        <td>${textArea.value}</td>
+                        <td><i class="fa fa-circle">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                    </tr>
+                </table>    
                 `;
                 break;
             case "event":
-                tableEl.innerHTML += `
-                <tr>
-                    <td>${textArea.value}</td>
-                    <td><i class="fa fa-calendar-check">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
-                </tr>    
+                dailyNote.innerHTML += `
+                <table id="table">
+                    <tr>
+                        <td>${textArea.value}</td>
+                        <td><i class="fa fa-calendar-check">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                    </tr>
+                </table>    
                 `;
                 break;
             case "meeting":
-                tableEl.innerHTML += `
-                <tr>
-                    <td>${textArea.value}</td>
-                    <td><i class="fa fa-location-arrow">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
-                </tr>    
+                dailyNote.innerHTML += `
+                <table id="table">
+                    <tr>
+                        <td>${textArea.value}</td>
+                        <td><i class="fa fa-location-arrow"">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                    </tr>
+                </table>      
                 `;
                 break;
             default:
@@ -52,15 +60,20 @@ function writeNote() {
     }
 
     textArea.value = '';
+
 }
 
 function clearNote() {
-    tableEl.innerHTML = '';
+    dailyNote.innerHTML = '';
 }
 
 function createNote() {
-
-
+    if(dailyNote.innerHTML != ''){
+        createdNote = dailyNote;
+        createdNote.classList.replace('daily-note', 'created-note');
+        noteContainer.innerHTML += createdNote.outerHTML;
+    }
+    dailyNote.innerHTML = '';
 }
 
 taskEl.addEventListener('click', inputTypeChecked);

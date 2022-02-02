@@ -1,19 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     height: 100vh;
+    font-family: 'Sen', sans-serif;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-evenly;
-    font-family: 'Oswald', sans-serif;
-    background-color: whitesmoke;
+}
+
+h2{
+    margin: 0;
+    font-size: 75px;
+    color:rgb(74, 167, 221);
+}
+
+.appContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: white;
+}
+
+.note-container{
+    height: 100%;
+    width: 100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .mainContainer {
-    height: 600px;
-    width: 600px;
+    height: 100%;
+    width: 80%;
     /* border: 5px solid whitesmoke; */
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.5);
@@ -28,20 +51,8 @@ body {
     border-radius: 10px;
 }
 
-.note-container {
-    /* display: table; */
-    width: 100%;
-    padding: 100px;
-}
-
-.note-container .created-note {
-    /* display: table-row; */
-    width: 200px;
-    height: 150px;
-    border: 1px solid black;
-}
-
 .listContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,22 +108,27 @@ button:hover {
 }
 
 .daily-note {
-    width: 200px;
+    width: 300px;
     height: 150px;
     margin: 10px;
     font-size: 15px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
     overflow: auto;
+    display: table;
+    background-color: #f2eecb;
 }
 
 .created-note {
-    width: 200px;
+    width: 300px;
     height: 150px;
     margin: 10px;
     font-size: 15px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    ;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
     overflow: auto;
+    float: left;
+    background-color: #f2eecb;
 }
 
 
@@ -127,11 +143,19 @@ button:hover {
 table {
     table-layout: fixed;
     width: 100%;
-    height: 100%;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.541);
 }
 
-table td {
-    overflow: auto;
+td{
+    width: 50%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+h3{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    font-size: 125px;
+    text-decoration: underline;
 }

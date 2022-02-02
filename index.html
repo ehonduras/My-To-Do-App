@@ -11,52 +11,35 @@
 </head>
 
 <body>
-    <div class="mainContainer">
-        <div class="upperContainer">
-            <div class="inputContainer">
-                <textarea name="textarea" id="textarea" cols="30" rows="5"></textarea>
+    <h2>Lazar's To Do App</h2>
+    <div class="appContainer">
+        <div class="mainContainer">
+            <div class="upperContainer">
+                <div class="inputContainer">
+                    <textarea name="textarea" id="textarea" cols="30" rows="5"></textarea>
+                </div>
+    
+                <div class="inputType">
+                    <ul>
+                        <li id="task">Task</li>
+                        <li id="event">Event</li>
+                        <li id="meeting">Meeting</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="inputType">
-                <ul>
-                    <li id="task">Task</li>
-                    <li id="event">Event</li>
-                    <li id="meeting">Meeting</li>
-                </ul>
+    
+            <div class="listContainer">
+                <button id="addButton">Add</button>
+                <button id="clearButton">Clear</button>
+    
+                <div class="daily-note" id="daily-note">
+                </div>
+    
+                <button id="createNote">Create Note</button>
             </div>
         </div>
-
-        <div class="listContainer">
-            <button id="addButton">Add</button>
-            <button id="clearButton">Clear</button>
-
-            <div class="daily-note">
-                <table id="table">
-
-                </table>
-            </div>
-
-            <button id="createNote">Create Note</button>
-        </div>
-    </div>
-
-    <div class="note-container">
-        <div class="created-note">
-            <table>
-
-            </table>
-        </div>
-        <div class="created-note">
-            <table id="table">
-
-            </table>
-        </div>
-        <div class="created-note">
-            <table id="table">
-
-            </table>
-        </div>
-
+    
+        <div class="note-container" id="note-container"></div>
     </div>
 
     <script src="script.js"></script>
