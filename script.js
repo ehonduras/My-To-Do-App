@@ -60,6 +60,7 @@ function clearNote() {
 
 function createNote() {
 
+
 }
 
 taskEl.addEventListener('click', inputTypeChecked);
