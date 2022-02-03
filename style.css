@@ -108,6 +108,7 @@ button:hover {
 }
 
 .daily-note {
+    position: relative;
     width: 300px;
     height: 150px;
     margin: 10px;
@@ -120,9 +121,10 @@ button:hover {
 }
 
 .created-note {
+    position: relative;
     width: 300px;
     height: 150px;
-    margin: 10px;
+    margin: 20px;
     font-size: 15px;
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
@@ -130,15 +132,6 @@ button:hover {
     float: left;
     background-color: #f2eecb;
 }
-
-
-/* .daily-note td:nth-of-type(even) {
-    background-color: rgb(50, 174, 231);
-}
-
-.daily-note td:nth-of-type(odd) {
-    background-color: rgb(125, 196, 230);
-} */
 
 table {
     table-layout: fixed;
@@ -150,6 +143,32 @@ td{
     width: 50%;
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+
+td:nth-of-type(even){
+    position: relative;
+}
+
+.fa-circle, 
+.fa-calendar-check,
+.fa-location-arrow {
+    position: absolute;
+    left: 0;
+}
+
+.fa-check{
+    color: black;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.fa-trash{
+    color: crimson;
+    position: absolute;
+    right: 0;
+    transform: translateX(200%);
+    cursor: pointer;
 }
 
 h3{

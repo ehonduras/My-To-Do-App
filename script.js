@@ -6,11 +6,10 @@ const addButtonEl = document.getElementById('addButton');
 const clearButtonEl = document.getElementById('clearButton');
 const createNoteEl = document.getElementById('createNote');
 const dailyNote = document.getElementById('daily-note');
-const tableEl = document.getElementById('table');
 const noteContainer = document.getElementById('note-container');
 
+let deleteEl;
 let inputType;
-let createdNote;
 
 function inputTypeChecked(e) {
     if (inputType) {
@@ -29,38 +28,38 @@ function writeNote() {
                 <table id="table">
                     <tr>
                         <td>${textArea.value}</td>
-                        <td><i class="fa fa-circle">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                        <td><i class="fa fa-circle">&nbsp;&nbsp;&nbsp;</i>${inputType.id}<i class='fa fa-trash' onclick="deleteInput(event)"></i></td>
                     </tr>
                 </table>    
                 `;
+                textArea.value = '';
                 break;
             case "event":
                 dailyNote.innerHTML += `
                 <table id="table">
                     <tr>
                         <td>${textArea.value}</td>
-                        <td><i class="fa fa-calendar-check">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                        <td><i class="fa fa-calendar-check">&nbsp;&nbsp;&nbsp;</i>${inputType.id}<i class='fa fa-trash' onclick="deleteInput(event)"></i></td>
                     </tr>
                 </table>    
                 `;
+                textArea.value = '';
                 break;
             case "meeting":
                 dailyNote.innerHTML += `
                 <table id="table">
                     <tr>
                         <td>${textArea.value}</td>
-                        <td><i class="fa fa-location-arrow"">&nbsp;&nbsp;&nbsp;</i>${inputType.id}</td>
+                        <td><i class="fa fa-location-arrow"">&nbsp;&nbsp;&nbsp;</i>${inputType.id}<i class='fa fa-trash' onclick="deleteInput(event)"></i></td>
                     </tr>
                 </table>      
                 `;
+                textArea.value = '';
                 break;
             default:
                 break;
         }
     }
-
-    textArea.value = '';
-
 }
 
 function clearNote() {
@@ -68,12 +67,29 @@ function clearNote() {
 }
 
 function createNote() {
+    let createdNote = document.createElement('div');
+    let createdIcon = document.createElement('i');
     if(dailyNote.innerHTML != ''){
-        createdNote = dailyNote;
-        createdNote.classList.replace('daily-note', 'created-note');
-        noteContainer.innerHTML += createdNote.outerHTML;
+        createdNote.innerHTML = dailyNote.innerHTML;
+        createdNote.classList.add('created-note');
+        createdIcon.classList.add('fa','fa-check');
+        createdIcon.setAttribute('onclick', 'taskDone(event)');
+        console.log(createdIcon);
+        noteContainer.appendChild(createdNote);
+        createdNote.querySelectorAll('td:nth-child(2n)').forEach(el => el.appendChild(createdIcon));
     }
+    createdNote.querySelectorAll('.fa-trash').forEach(e => e.remove());
     dailyNote.innerHTML = '';
+    textArea.value = '';
+}
+
+function deleteInput(e){
+    let input = e.target.parentElement.parentElement;
+    input.remove();
+}
+
+function taskDone(e){
+    console.log(e.target.parentElement.parentElement.children); //nedovrseni posao
 }
 
 taskEl.addEventListener('click', inputTypeChecked);
