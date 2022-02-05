@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -14,23 +13,23 @@ body {
     justify-content: space-evenly;
 }
 
-h2{
+h2 {
     margin: 0;
     font-size: 75px;
-    color:rgb(74, 167, 221);
+    color: rgb(74, 167, 221);
 }
 
-.appContainer{
+.appContainer {
     height: 100%;
     width: 100%;
     display: flex;
     background-color: white;
 }
 
-.note-container{
+.note-container {
     height: 100%;
     width: 100%;
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -40,7 +39,7 @@ h2{
     /* border: 5px solid whitesmoke; */
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.5);
-    padding: 50px;
+    padding: 25px;
 }
 
 .upperContainer {
@@ -133,37 +132,45 @@ button:hover {
     background-color: #f2eecb;
 }
 
+.note-done {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgb(50, 174, 231);
+    ;
+}
+
 table {
     table-layout: fixed;
     width: 100%;
     text-align: center;
 }
 
-td{
+td {
     width: 50%;
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
 
-td:nth-of-type(even){
+td:nth-of-type(even) {
     position: relative;
 }
 
-.fa-circle, 
+.fa-circle,
 .fa-calendar-check,
 .fa-location-arrow {
     position: absolute;
     left: 0;
 }
 
-.fa-check{
+.fa-check-double {
     color: black;
     position: absolute;
     right: 0;
     cursor: pointer;
+    color: rgb(50, 174, 231);
 }
 
-.fa-trash{
+.fa-trash {
     color: crimson;
     position: absolute;
     right: 0;
@@ -171,10 +178,18 @@ td:nth-of-type(even){
     cursor: pointer;
 }
 
-h3{
+h3 {
     position: absolute;
     margin: 0;
     top: 0;
     font-size: 125px;
     text-decoration: underline;
+}
+
+.login {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    width: 100px;
+    font-weight: bold;
 }
