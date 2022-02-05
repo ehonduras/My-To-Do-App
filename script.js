@@ -7,6 +7,7 @@ const clearButtonEl = document.getElementById('clearButton');
 const createNoteEl = document.getElementById('createNote');
 const dailyNote = document.getElementById('daily-note');
 const noteContainer = document.getElementById('note-container');
+const loginButton = document.getElementById('login');
 
 let deleteEl;
 let inputType;
@@ -69,27 +70,28 @@ function clearNote() {
 function createNote() {
     let createdNote = document.createElement('div');
     let createdIcon = document.createElement('i');
-    if(dailyNote.innerHTML != ''){
+    if (dailyNote.innerHTML != '') {
         createdNote.innerHTML = dailyNote.innerHTML;
         createdNote.classList.add('created-note');
-        createdIcon.classList.add('fa','fa-check');
-        createdIcon.setAttribute('onclick', 'taskDone(event)');
-        console.log(createdIcon);
         noteContainer.appendChild(createdNote);
-        createdNote.querySelectorAll('td:nth-child(2n)').forEach(el => el.appendChild(createdIcon));
     }
-    createdNote.querySelectorAll('.fa-trash').forEach(e => e.remove());
+    createdNote.querySelectorAll('td:nth-child(2n)').forEach(el => el.appendChild(createdIcon));
+    createdNote.querySelectorAll('.fa-trash').forEach(e => {
+        e.classList.replace('fa-trash', 'fa-check-double');
+        e.setAttribute('onclick', 'taskDone(event)');
+    });
+
     dailyNote.innerHTML = '';
     textArea.value = '';
 }
 
-function deleteInput(e){
+function deleteInput(e) {
     let input = e.target.parentElement.parentElement;
     input.remove();
 }
 
-function taskDone(e){
-    console.log(e.target.parentElement.parentElement.children); //nedovrseni posao
+function taskDone(e) {
+    e.target.parentNode.previousElementSibling.classList.add('note-done');
 }
 
 taskEl.addEventListener('click', inputTypeChecked);
