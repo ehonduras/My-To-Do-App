@@ -20,6 +20,8 @@ h2 {
 }
 
 .appContainer {
+    visibility: hidden;
+    z-index: 1;
     height: 100%;
     width: 100%;
     display: flex;
@@ -186,10 +188,56 @@ h3 {
     text-decoration: underline;
 }
 
-.login {
+
+/* Login and signup */
+
+.header-container {
+    position: relative;
+}
+
+.login-buttons {
     position: absolute;
     top: 25px;
-    right: 5px;
-    width: 100px;
-    font-weight: bold;
+    right: 15px;
+}
+
+.login-buttons button {
+    width: 150px;
+    font-weight: bolder;
+}
+
+.form-container {
+    position: absolute;
+    border: 1px solid rgb(34, 147, 199);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(34, 147, 199, 0.4);
+    height: 30%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container h4 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 0;
+    color: rgb(34, 147, 199);
+}
+
+.login-form {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    font-size: 25px;
+}
+
+.login-form input {
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: whitesmoke;
 }
