@@ -20,7 +20,6 @@ h2 {
 }
 
 .appContainer {
-    visibility: hidden;
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -189,11 +188,16 @@ h3 {
 }
 
 
-/* Login and signup */
+/* Header Image */
 
-.header-container {
-    position: relative;
+img{
+    position: absolute;
+    left: 15%;
+    top: 0;
+    width: 100px;
 }
+
+/* Login */
 
 .login-buttons {
     position: absolute;
@@ -206,7 +210,7 @@ h3 {
     font-weight: bolder;
 }
 
-.form-container {
+.login-form-container {
     position: absolute;
     border: 1px solid rgb(34, 147, 199);
     border-radius: 5px;
@@ -217,6 +221,23 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.login-form-container button {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: rgb(22, 21, 21);
+    justify-content: center
+}
+
+.login-form-container i{
+    position: absolute;
+    color: rgb(34, 147, 199);
+    left: 5px;
+    top: 5px;
+    cursor: pointer;
 }
 
 .form-container h4 {
@@ -240,4 +261,61 @@ h3 {
     text-decoration: none;
     cursor: pointer;
     background-color: whitesmoke;
+}
+
+/* Signup */
+
+.signup-form-container {
+    position: absolute;
+    border: 1px solid rgb(34, 147, 199);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(34, 147, 199, 0.4);
+    height: 35%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-form-container i{
+    position: absolute;
+    color: rgb(34, 147, 199);
+    left: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.signup-form-container button {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: rgb(22, 21, 21);
+    justify-content: center
+}
+
+.signup-form {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    font-size: 25px;
+}
+
+.signup-form input {
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+/* Hidden */
+
+
+.login-form-container.hidden,
+.signup-form-container.hidden,
+.appContainer.hidden{
+    visibility: hidden;
 }
