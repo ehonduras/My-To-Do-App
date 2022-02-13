@@ -98,21 +98,29 @@ function taskDone(e) {
     e.target.parentNode.previousElementSibling.classList.add('note-done');
 }
 
-function loginFunction(){
-    !appContainer.classList.contains('hidden')? appContainer.classList.add('hidden') && signupFormContainer.classList.add('hidden'): signupFormContainer.classList.add('hidden');
+function loginFunction() {
+    !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && signupFormContainer.classList.add('hidden') : signupFormContainer.classList.add('hidden');
     loginFormContainer.classList.toggle('hidden');
 }
 
-function signupFunction(){
-    !appContainer.classList.contains('hidden')? appContainer.classList.add('hidden') && loginFormContainer.classList.add('hidden'): loginFormContainer.classList.add('hidden');
+function signupFunction() {
+    !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && loginFormContainer.classList.add('hidden') : loginFormContainer.classList.add('hidden');
     signupFormContainer.classList.toggle('hidden');
 }
 
-function backHomeFunction(){
+function backHomeFunction() {
     signupFormContainer.classList.add('hidden');
     loginFormContainer.classList.add('hidden');
     appContainer.classList.remove('hidden');
 }
+
+async function getDailyQuote() {
+    fetch('https://type.fit/api/quotes')
+        .then(res => res.json())
+        .then(data => console.log(data[0].text));
+}
+
+getDailyQuote();
 
 taskEl.addEventListener('click', inputTypeChecked);
 eventEl.addEventListener('click', inputTypeChecked);
