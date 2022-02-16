@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -197,22 +198,21 @@ img {
     width: 75px;
 }
 
-.quote {}
-
 h2 {
     font-size: 75px;
     color: rgb(34, 147, 199);
 }
 
+.quote {
+    width: 15%;
+    text-align: center;
+    align-content: center;
+    font-family: 'Redressed', cursive;
+    font-size: 20px;
+}
+
 
 /* Login */
-
-.login-buttons {
-    /* position: absolute;
-    top: 25px;
-    right: 15px; */
-    display: inline-block;
-}
 
 .login-buttons button {
     width: 150px;

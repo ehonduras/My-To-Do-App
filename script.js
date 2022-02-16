@@ -12,6 +12,7 @@ const loginFormContainer = document.querySelector('.login-form-container');
 const signupFormContainer = document.querySelector('.signup-form-container');
 const loginButton = document.getElementById('login-button');
 const signupButton = document.getElementById('signup-button');
+const quoteEl = document.getElementById('quote');
 
 let deleteEl;
 let inputType;
@@ -117,10 +118,12 @@ function backHomeFunction() {
 async function getDailyQuote() {
     fetch('https://type.fit/api/quotes')
         .then(res => res.json())
-        .then(data => console.log(data[0].text));
+        .then(data => quoteEl.innerHTML = data[Math.floor(Math.random() * 1000)].text)
+        .catch(err => console.log(err));
 }
 
-getDailyQuote();
+setInterval(getDailyQuote, 50000);
+
 
 taskEl.addEventListener('click', inputTypeChecked);
 eventEl.addEventListener('click', inputTypeChecked);
