@@ -7,7 +7,12 @@ const clearButtonEl = document.getElementById('clearButton');
 const createNoteEl = document.getElementById('createNote');
 const dailyNote = document.getElementById('daily-note');
 const noteContainer = document.getElementById('note-container');
-const loginButton = document.getElementById('login');
+const appContainer = document.querySelector('.appContainer');
+const loginFormContainer = document.querySelector('.login-form-container');
+const signupFormContainer = document.querySelector('.signup-form-container');
+const loginButton = document.getElementById('login-button');
+const signupButton = document.getElementById('signup-button');
+const quoteEl = document.getElementById('quote');
 
 let deleteEl;
 let inputType;
@@ -94,9 +99,37 @@ function taskDone(e) {
     e.target.parentNode.previousElementSibling.classList.add('note-done');
 }
 
+function loginFunction() {
+    !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && signupFormContainer.classList.add('hidden') : signupFormContainer.classList.add('hidden');
+    loginFormContainer.classList.toggle('hidden');
+}
+
+function signupFunction() {
+    !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && loginFormContainer.classList.add('hidden') : loginFormContainer.classList.add('hidden');
+    signupFormContainer.classList.toggle('hidden');
+}
+
+function backHomeFunction() {
+    signupFormContainer.classList.add('hidden');
+    loginFormContainer.classList.add('hidden');
+    appContainer.classList.remove('hidden');
+}
+
+async function getDailyQuote() {
+    fetch('https://type.fit/api/quotes')
+        .then(res => res.json())
+        .then(data => quoteEl.innerHTML = data[Math.floor(Math.random() * 1000)].text)
+        .catch(err => console.log(err));
+}
+
+setInterval(getDailyQuote, 50000);
+
+
 taskEl.addEventListener('click', inputTypeChecked);
 eventEl.addEventListener('click', inputTypeChecked);
 meetingEl.addEventListener('click', inputTypeChecked);
 addButtonEl.addEventListener('click', writeNote);
 clearButtonEl.addEventListener('click', clearNote);
-createNoteEl.addEventListener('click', createNote)
+createNoteEl.addEventListener('click', createNote);
+loginButton.addEventListener('click', loginFunction);
+signupButton.addEventListener('click', signupFunction);

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -13,14 +14,7 @@ body {
     justify-content: space-evenly;
 }
 
-h2 {
-    margin: 0;
-    font-size: 75px;
-    color: rgb(74, 167, 221);
-}
-
 .appContainer {
-    visibility: hidden;
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -189,24 +183,43 @@ h3 {
 }
 
 
-/* Login and signup */
+/* Header */
 
 .header-container {
-    position: relative;
+    width: 100%;
+    height: 15%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.login-buttons {
-    position: absolute;
-    top: 25px;
-    right: 15px;
+img {
+    width: 75px;
 }
+
+h2 {
+    font-size: 75px;
+    color: rgb(34, 147, 199);
+}
+
+.quote {
+    width: 15%;
+    text-align: center;
+    align-content: center;
+    font-family: 'Redressed', cursive;
+    font-size: 20px;
+}
+
+
+/* Login */
 
 .login-buttons button {
     width: 150px;
     font-weight: bolder;
 }
 
-.form-container {
+.login-form-container {
     position: absolute;
     border: 1px solid rgb(34, 147, 199);
     border-radius: 5px;
@@ -217,6 +230,23 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.login-form-container button {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: rgb(22, 21, 21);
+    justify-content: center
+}
+
+.login-form-container i {
+    position: absolute;
+    color: rgb(34, 147, 199);
+    left: 5px;
+    top: 5px;
+    cursor: pointer;
 }
 
 .form-container h4 {
@@ -240,4 +270,62 @@ h3 {
     text-decoration: none;
     cursor: pointer;
     background-color: whitesmoke;
+}
+
+
+/* Signup */
+
+.signup-form-container {
+    position: absolute;
+    border: 1px solid rgb(34, 147, 199);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(34, 147, 199, 0.4);
+    height: 35%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-form-container i {
+    position: absolute;
+    color: rgb(34, 147, 199);
+    left: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.signup-form-container button {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: rgb(22, 21, 21);
+    justify-content: center
+}
+
+.signup-form {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    font-size: 25px;
+}
+
+.signup-form input {
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+
+/* Hidden */
+
+.login-form-container.hidden,
+.signup-form-container.hidden,
+.appContainer.hidden {
+    visibility: hidden;
 }

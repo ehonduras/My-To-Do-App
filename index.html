@@ -7,25 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
     <title>My To Do App</title>
 </head>
 
 <body>
-    <h2>Lazar's To Do App</h2>
+    <div class="header-container" id="header-container">
+        <img src="notepic.png" alt="note">
 
-    <div class="login-buttons">
-        <button id="login-button">Login</button>
-        <button id="signup-button">Signup</button>
+        <div class="quote" id="quote">What good shall you do today?</div>
+
+        <h2>Lazar's To Do App</h2>
+
+        <div class="login-buttons">
+            <button id="login-button">Login</button>
+            <button id="signup-button">Signup</button>
+        </div>
     </div>
 
-    <div class="form-container">
-        <h4>Login</h4>
+    <div class="login-form-container hidden">
+        <i class="fa fa-arrow-left" onclick="backHomeFunction()"></i>
         <form class="login-form">
             <label for="login-username">Username</label>
-            <input type="text" id="login-username">
+            <input tappContainerype="text" id="login-username">
             <label for="login-password">Password</label>
             <input type="text" id="login-password">
         </form>
+        <button>Login</button>
+    </div>
+
+    <div class="signup-form-container hidden">
+        <i class="fa fa-arrow-left" onclick="backHomeFunction()"></i>
+        <form class="signup-form">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email">
+            <label for="signup-name">Name</label>
+            <input type="text" id="signup-name">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username">
+            <label for="signup-password">Password</label>
+            <input type="text" id="signup-password">
+        </form>
+        <button>Signup</button>
     </div>
 
     <div class="appContainer">
