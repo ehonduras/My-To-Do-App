@@ -16,6 +16,7 @@ const quoteEl = document.getElementById('quote');
 
 let deleteEl;
 let inputType;
+let createdNoteDate;
 
 function inputTypeChecked(e) {
     if (inputType) {
@@ -74,11 +75,17 @@ function clearNote() {
 
 function createNote() {
     let createdNote = document.createElement('div');
+    let noteDate = document.createElement('div');
     let createdIcon = document.createElement('i');
+    createdNoteDate = new Date();
+
     if (dailyNote.innerHTML != '') {
         createdNote.innerHTML = dailyNote.innerHTML;
         createdNote.classList.add('created-note');
         noteContainer.appendChild(createdNote);
+        noteDate.innerHTML = 'Created: ' + createdNoteDate.toString().split('G')[0];
+        noteDate.classList.add('note-date');
+        createdNote.appendChild(noteDate);
     }
     createdNote.querySelectorAll('td:nth-child(2n)').forEach(el => el.appendChild(createdIcon));
     createdNote.querySelectorAll('.fa-trash').forEach(e => {
@@ -88,6 +95,8 @@ function createNote() {
 
     dailyNote.innerHTML = '';
     textArea.value = '';
+
+    localStorage.setItem('note', JSON.stringify(createdNote));
 }
 
 function deleteInput(e) {

@@ -54,6 +54,9 @@ body {
     align-items: center;
 }
 
+
+/* note */
+
 #textarea {
     border-radius: 5px;
     cursor: pointer;
@@ -180,6 +183,12 @@ h3 {
     top: 0;
     font-size: 125px;
     text-decoration: underline;
+}
+
+.note-date {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 
