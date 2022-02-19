@@ -20,3 +20,13 @@ setInterval(getDailyQuote, 50000);
 Rjesenje za dinamicno selektiranje elemenata - integrisani onclick atribut
 
 -------------------------------------------------------
+
+Rjesenje za kreiranje objekta i setanje u localstorage
+
+    let note = {
+        "noteItems": createdNote.outerHTML,
+        'noteDate': createdNoteDate
+    }
+
+    createdNotes.push(note);
+    localStorage.setItem("createdNotes", JSON.stringify(createdNotes));
