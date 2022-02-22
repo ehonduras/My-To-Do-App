@@ -220,7 +220,6 @@ h2 {
     font-size: 20px;
 }
 
-
 /* Login */
 
 .login-buttons button {
@@ -330,11 +329,15 @@ h2 {
     background-color: whitesmoke;
 }
 
+.input-error{
+    color: red;
+}
 
 /* Hidden */
 
 .login-form-container.hidden,
 .signup-form-container.hidden,
+.input-error.hidden,
 .appContainer.hidden {
     visibility: hidden;
 }
