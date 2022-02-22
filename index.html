@@ -23,6 +23,8 @@
             <button id="login-button">Login</button>
             <button id="signup-button">Signup</button>
         </div>
+
+        <div class="authenticated-user hidden" id="authenticated-user"></div>
     </div>
 
     <div class="login-form-container hidden">
@@ -33,22 +35,23 @@
             <label for="login-password">Password</label>
             <input type="text" id="login-password">
         </form>
-        <button>Login</button>
+        <button id='login-btn'>Login</button>
     </div>
 
     <div class="signup-form-container hidden">
         <i class="fa fa-arrow-left" onclick="backHomeFunction()"></i>
         <form class="signup-form">
             <label for="signup-email">Email</label>
-            <input type="email" id="signup-email">
+            <input type="email" id="signup-email" placeholder="test@email.com">
             <label for="signup-name">Name</label>
-            <input type="text" id="signup-name">
+            <input type="text" id="signup-name" placeholder="Name">
             <label for="signup-username">Username</label>
-            <input type="text" id="signup-username">
+            <input type="text" id="signup-username"  placeholder="Username">
             <label for="signup-password">Password</label>
-            <input type="text" id="signup-password">
+            <input type="text" id="signup-password" placeholder="Password">
         </form>
-        <button>Signup</button>
+        <button id="signup-btn">Submit</button>
+        <div class="input-error hidden" id="input-error">Please correct your input and submit again.</div>
     </div>
 
     <div class="appContainer">
@@ -82,6 +85,7 @@
     </div>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/signup_login.js"></script>
 </body>
 
 </html>

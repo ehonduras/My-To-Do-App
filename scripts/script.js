@@ -25,7 +25,6 @@ function inputTypeChecked(e) {
     }
     inputType = document.getElementById(e.target.id);
     inputType.classList.add('checked');
-
 }
 
 function writeNote() {
@@ -113,6 +112,7 @@ function deleteInput(e) {
 
 function taskDone(e) {
     e.target.parentNode.previousElementSibling.classList.add('note-done');
+    e.target.remove();
 }
 
 function loginFunction() {
