@@ -118,11 +118,19 @@ function taskDone(e) {
 function loginFunction() {
     !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && signupFormContainer.classList.add('hidden') : signupFormContainer.classList.add('hidden');
     loginFormContainer.classList.toggle('hidden');
+
+    if (loginFormContainer.classList.contains('hidden')) {
+        appContainer.classList.remove('hidden')
+    }
 }
 
 function signupFunction() {
     !appContainer.classList.contains('hidden') ? appContainer.classList.add('hidden') && loginFormContainer.classList.add('hidden') : loginFormContainer.classList.add('hidden');
     signupFormContainer.classList.toggle('hidden');
+
+    if (signupFormContainer.classList.contains('hidden')) {
+        appContainer.classList.remove('hidden')
+    }
 }
 
 function backHomeFunction() {
