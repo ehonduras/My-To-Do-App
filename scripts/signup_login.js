@@ -16,45 +16,60 @@ const headerContainer = document.getElementById('header-container');
 
 const users = [];
 
-function User (name, username, email, password){
-    this.name = name, 
-    this.username = username,
-    this.email = email,
-    this.password = password
+function User(name, username, email, password) {
+    this.name = name,
+        this.username = username,
+        this.email = email,
+        this.password = password
 }
 
-function validateEmail(email){
+function validateEmail(email) {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
 
-function validateUsername(username){
+function validateUsername(username) {
     let re = /^[a-z0-9_\.]+$/;
     return re.test(username);
 }
 
-function removeErrorMsg(){
+function removeErrorMsg() {
     inputError.classList.add('hidden');
 }
 
-function createNewUser(){
-    if(validateEmail(signupEmail.value) && validateUsername(signupUsername.value)){
+function checkDuplicates() {
+    let allUsers = JSON.parse(localStorage.getItem('users'));
+
+    allUsers.forEach(user => {
+        if (user.username == signupUsername.value) {
+            inputError.textContent = 'Username already exists.';
+            return false;
+        }
+    })
+
+    return true;
+}
+
+function createNewUser() {
+    if (validateEmail(signupEmail.value) && validateUsername(signupUsername.value) && checkDuplicates()) {
         let user = new User(signupName.value, signupUsername.value, signupEmail.value, signupPassword.value);
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
     } else {
         inputError.classList.remove('hidden');
+        setTimeout(removeErrorMsg, 3000);
     }
     signupForm[0].reset();
-    setTimeout(removeErrorMsg, 3000);
+    loginFormContainer.classList.add('hidden');
+    appContainer.classList.remove('hidden');
 }
 
 //login
 
-function checkCredentials(){
+function checkCredentials() {
     let allUsers = JSON.parse(localStorage.getItem('users'));
     allUsers.forEach(user => {
-        if(loginUsername.value == user.username && loginPassword.value == user.password){
+        if (loginUsername.value == user.username && loginPassword.value == user.password) {
             authenticatedUser.textContent = `Hi ${user.name}!`;
             authenticatedUser.style.marginRight = '300px';
             headerContainer.appendChild(authenticatedUser);
@@ -64,7 +79,7 @@ function checkCredentials(){
             appContainer.classList.remove('hidden');
         }
     });
-    
+
 }
 
 signupBtn.addEventListener('click', createNewUser);
